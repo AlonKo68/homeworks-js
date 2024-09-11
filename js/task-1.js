@@ -17,6 +17,12 @@
 // console.log(makeTransaction(3, 1000)); // "You ordered 3 droids worth 3000 credits!"
 // console.log(makeTransaction(10, 500)); // "You ordered 10 droids worth 5000 credits!"
 
+// const makeTransaction = (quantity, pricePerDroid) =>
+//   `You ordered ${quantity} droids worth ${quantity * pricePerDroid} credits!`;
+// console.log(makeTransaction(5, 3000)); // "You ordered 5 droids worth 15000 credits!"
+// console.log(makeTransaction(3, 1000)); // "You ordered 3 droids worth 3000 credits!"
+// console.log(makeTransaction(10, 500)); // "You ordered 10 droids worth 5000 credits!"
+
 // Задача M2 - 1: Замовлення дроїдів
 // Оголоси функцію makeTransaction(quantity, pricePerDroid, customerCredits), яка складає та
 // повертає повідомлення про купівлю ремонтних дроїдів.
@@ -66,6 +72,15 @@
 // console.log(slugify("Ten secrets of JavaScript")); // "ten-secrets-of-javascript"
 // console.log(slugify("How to become a JUNIOR developer in TWO WEEKS")); // "how-to-become-a-junior-developer-in-two-weeks"
 
+// const slugify = title => {
+//   const slug = title.toLowerCase().split(' ').join('-');
+//   return `"${slug}"`;
+// };
+// console.log(slugify('Arrays for begginers')); // "arrays-for-begginers"
+// console.log(slugify('English for developer')); // "english-for-developer"
+// console.log(slugify('Ten secrets of JavaScript')); // "ten-secrets-of-javascript"
+// console.log(slugify('How to become a JUNIOR developer in TWO WEEKS')); // "how-to-become-a-junior-developer-in-two-weeks"
+
 // Задача M4 - 1. Пакування товарів
 /*Напиши функцію isEnoughCapacity(products, containerSize), яка обчислює, чи помістяться всі товари в 
 контейнер при пакуванні.
@@ -83,20 +98,20 @@ containerSize, і false, якщо ні.
 Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. 
 У консоль будуть виведені результати її викликів.  */
 
-function isEnoughCapacity(products, containerSize) {
-  let totalQuantities = 0;
-  for (const product in products) {
-    totalQuantities += products[product];
-  }
-  if (totalQuantities <= containerSize) {
-    return true;
-  }
-  return false;
-}
-console.log(isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)); // true
-console.log(isEnoughCapacity({ apples: 4, grapes: 6, lime: 16 }, 12)); // false
-console.log(isEnoughCapacity({ apples: 1, lime: 5, tomatoes: 3 }, 14)); // true
-console.log(isEnoughCapacity({ apples: 18, potatoes: 5, oranges: 2 }, 7)); // false
+// function isEnoughCapacity(products, containerSize) {
+//   // let totalQuantities = 0;
+//   // for (const product in products) {
+//   //   totalQuantities += products[product];
+//   // }
+//   // if (totalQuantities <= containerSize) {
+//   //   return true;
+//   // }
+//   // return false;
+// }
+// console.log(isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)); // true
+// console.log(isEnoughCapacity({ apples: 4, grapes: 6, lime: 16 }, 12)); // false
+// console.log(isEnoughCapacity({ apples: 1, lime: 5, tomatoes: 3 }, 14)); // true
+// console.log(isEnoughCapacity({ apples: 18, potatoes: 5, oranges: 2 }, 7)); // false
 
 // function isEnoughCapacity(products, containerSize) {
 //   const totalProducts = Object.values(products).reduce(
@@ -112,3 +127,53 @@ console.log(isEnoughCapacity({ apples: 18, potatoes: 5, oranges: 2 }, 7)); // fa
 // console.log(isEnoughCapacity({ apples: 1, lime: 5, tomatoes: 3 }, 14)); // true
 
 // console.log(isEnoughCapacity({ apples: 18, potatoes: 5, oranges: 2 }, 7)); // false
+
+/*Задача 1. Імена користувачів
+Оголошена змінна getUserNames
+Змінній getUserNames присвоєна стрілочна функція з параметром (users).
+Для перебирання параметра users використовується метод map() */
+
+// const getUserNames = users => {
+//   return users.map(user => user.name);
+// };
+const getUserNames = users => users.map(user => user.name);
+console.log(
+  getUserNames([
+    {
+      name: 'Moore Hensley',
+      email: 'moorehensley@indexia.com',
+      balance: 2811,
+    },
+    {
+      name: 'Sharlene Bush',
+      email: 'sharlenebush@tubesys.com',
+      balance: 3821,
+    },
+    {
+      name: 'Ross Vazquez',
+      email: 'rossvazquez@xinware.com',
+      balance: 3793,
+    },
+    {
+      name: 'Elma Head',
+      email: 'elmahead@omatom.com',
+      balance: 2278,
+    },
+    {
+      name: 'Carey Barr',
+      email: 'careybarr@nurali.com',
+      balance: 3951,
+    },
+    {
+      name: 'Blackburn Dotson',
+      email: 'blackburndotson@furnigeer.com',
+      balance: 1498,
+    },
+    {
+      name: 'Sheree Anthony',
+      email: 'shereeanthony@kog.com',
+      balance: 2764,
+    },
+  ])
+); // ["Moore Hensley", "Sharlene Bush", "Ross Vazquez", "Elma Head", "Carey Barr", "Blackburn Dotson", "Sheree Anthony"]
+console.log(getUserNames()); //[]

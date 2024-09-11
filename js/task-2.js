@@ -17,6 +17,12 @@
 // console.log(getShippingMessage("Germany", 80, 20)); // "Shipping to Germany will cost 100 credits"
 // console.log(getShippingMessage("Sweden", 100, 20)); // "Shipping to Sweden will cost 120 credits"
 
+// const getShippingMessage = (country, price, deliveryFee) =>
+//   `Shipping to ${country} will cost ${price + deliveryFee} credits`;
+// console.log(getShippingMessage('Australia', 120, 50)); // "Shipping to Australia will cost 170 credits"
+// console.log(getShippingMessage('Germany', 80, 20)); // "Shipping to Germany will cost 100 credits"
+// console.log(getShippingMessage('Sweden', 100, 20)); // "Shipping to Sweden will cost 120 credits"
+
 // Задача M2 - 2: Форматування повідомлення
 // Оголоси функцію formatMessage(message, maxLength), яка приймає рядок(параметр message) та
 // перевіряє його довжину відповідно до заданої максимальної довжини(параметр maxLength).
@@ -25,6 +31,22 @@
 // змін.
 // Якщо довжина перевищує maxLength, то функція обрізає рядок до maxLength символів, додає
 // трикрапку "..." в кінці та повертає обрізану версію.
+
+// function formatMessage(message, maxLength) {
+//     const newMessage = message.slice(0, maxLength);
+//     console.log(newMessages);
+//     if (message.length > maxLength) {
+//         return `"${newMessage}..."`;
+//     } else {
+//         return `"${newMessage}"`;
+//     }
+// }
+// console.log(formatMessage("Curabitur ligula sapien", 16)); // "Curabitur ligula..."
+// console.log(formatMessage("Curabitur ligula sapien", 23)); // "Curabitur ligula sapien"
+// console.log(formatMessage("Vestibulum facilisis purus nec", 20)); // "Vestibulum facilisis..."
+// console.log(formatMessage("Vestibulum facilisis purus nec", 30)); // "Vestibulum facilisis purus nec"
+// console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 15)); // "Nunc sed turpis..."
+// console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 41)); // "Nunc sed turpis a felis in nunc fringilla"
 
 // function formatMessage(message, maxLength) {
 //     const newMessage = message.slice(0, maxLength);
@@ -72,36 +94,110 @@
 день тижня та кількість калорій calories, спожитих спортсменом, у цей день. Візьми код нижче і встав після 
 оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її 
 викликів.  */
-function calcAverageCalories(days) {
-  let totalCalories = 0;
-  for (const day of days) {
-    totalCalories += day.calories;
-  }
-  if (totalCalories === 0) {
-    return 0;
-  }
-  return totalCalories / days.length;
-}
-console.log(
-  calcAverageCalories([
-    { day: 'monday', calories: 3010 },
-    { day: 'tuesday', calories: 3200 },
-    { day: 'wednesday', calories: 3120 },
-    { day: 'thursday', calories: 2900 },
-    { day: 'friday', calories: 3450 },
-    { day: 'saturday', calories: 3280 },
-    { day: 'sunday', calories: 3300 },
-  ])
-); //3180
-console.log(
-  calcAverageCalories([
-    { day: 'monday', calories: 2040 },
-    { day: 'tuesday', calories: 2270 },
-    { day: 'wednesday', calories: 2420 },
-    { day: 'thursday', calories: 1900 },
-    { day: 'friday', calories: 2370 },
-    { day: 'saturday', calories: 2280 },
-    { day: 'sunday', calories: 2610 },
-  ])
-); //2270
-console.log(calcAverageCalories([])); //0
+// function calcAverageCalories(days) {
+//   let totalCalories = 0;
+//   for (const day of days) {
+//     totalCalories += day.calories;
+//   }
+//   if (totalCalories === 0) {
+//     return 0;
+//   }
+//   return totalCalories / days.length;
+// }
+
+// console.log(
+//   calcAverageCalories([
+//     { day: 'monday', calories: 3010 },
+//     { day: 'tuesday', calories: 3200 },
+//     { day: 'wednesday', calories: 3120 },
+//     { day: 'thursday', calories: 2900 },
+//     { day: 'friday', calories: 3450 },
+//     { day: 'saturday', calories: 3280 },
+//     { day: 'sunday', calories: 3300 },
+//   ])
+// ); //3180
+// console.log(
+//   calcAverageCalories([
+//     { day: 'monday', calories: 2040 },
+//     { day: 'tuesday', calories: 2270 },
+//     { day: 'wednesday', calories: 2420 },
+//     { day: 'thursday', calories: 1900 },
+//     { day: 'friday', calories: 2370 },
+//     { day: 'saturday', calories: 2280 },
+//     { day: 'sunday', calories: 2610 },
+//   ])
+// ); //2270
+// console.log(calcAverageCalories([])); //0
+
+/*Задача 2. Користувачі з другом
+Напиши стрілочну функцію getUsersWithFriend(users, friendName) , яка прийматиме два параметра:
+
+перший параметр users — масив об’єктів користувачів
+другий параметр friendName — ім’я друга для пошуку.
+Функція має повертати масив усіх користувачів із масиву users, у яких є друг з іменем friendName. Друзі 
+кожного користувача зберігаються у властивості friends. Якщо користувачів, у яких є такий друг немає, то 
+функція має повернути порожній масив.
+
+Поради:
+
+Метод filter() можна використовувати для створення нового масиву з елементами, які задовольняють певну 
+умову.
+Використовуй метод includes() для перевірки, чи масив friends містить friendName.
+Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль 
+будуть виведені результати її роботи.  */
+const allUsers = [
+  {
+    name: 'Moore Hensley',
+    friends: ['Sharron Pace'],
+  },
+  {
+    name: 'Sharlene Bush',
+    friends: ['Briana Decker', 'Sharron Pace'],
+  },
+  {
+    name: 'Ross Vazquez',
+    friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+  },
+  {
+    name: 'Elma Head',
+    friends: ['Goldie Gentry', 'Aisha Tran'],
+  },
+  {
+    name: 'Carey Barr',
+    friends: ['Jordan Sampson', 'Eddie Strong'],
+  },
+  {
+    name: 'Blackburn Dotson',
+    friends: ['Jacklyn Lucas', 'Linda Chapman'],
+  },
+  {
+    name: 'Sheree Anthony',
+    friends: ['Goldie Gentry', 'Briana Decker'],
+  },
+];
+const getUsersWithFriend = (users, friendName) =>
+  users.filter(user => user.friends.includes(friendName));
+
+console.log(getUsersWithFriend(allUsers, 'Briana Decker'));
+[
+  {
+    name: 'Sharlene Bush',
+    friends: ['Briana Decker', 'Sharron Pace'],
+  },
+  {
+    name: 'Sheree Anthony',
+    friends: ['Goldie Gentry', 'Briana Decker'],
+  },
+];
+console.log(getUsersWithFriend(allUsers, 'Goldie Gentry'));
+[
+  {
+    name: 'Elma Head',
+    friends: ['Goldie Gentry', 'Aisha Tran'],
+  },
+  {
+    name: 'Sheree Anthony',
+    friends: ['Goldie Gentry', 'Briana Decker'],
+  },
+];
+console.log(getUsersWithFriend(allUsers, 'Adrian Cross')); // []

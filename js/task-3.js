@@ -64,11 +64,19 @@
 //       newArray.push(number);
 //     }
 //   }
+
+// numbers.forEach(function (number, index) {
+//   if (number > value) {
+//     newArray.push(number);
+//   }
+// });
+
 //   // for (let i = 0; i < numbers.length; i += 1) {
 //   //     if (numbers[i] > value)  {
 //   //        newArray.push(numbers[i]);
 //   //     }
 //   // }
+
 //   return newArray;
 // }
 // console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
@@ -99,23 +107,114 @@ const profile = {
 Значення властивості changeUsername — це функція
 Значення властивості updatePlayTime — це функція
 Для звернення до властивостей об'єкта в його методах використовується this */
-const profile = {
-  username: 'Jacob',
-  playTime: 300,
-  getInfo() {
-    return `${this.username} has ${this.playTime} active hours!`;
-  },
-  changeUsername(newName) {
-    this.username = newName;
-  },
-  updatePlayTime(amount) {
-    this.playTime = amount + this.playTime;
-  },
+// const profile = {
+//   username: 'Jacob',
+//   playTime: 300,
+//   getInfo() {
+//     return `${this.username} has ${this.playTime} active hours!`;
+//   },
+//   changeUsername(newName) {
+//     this.username = newName;
+//   },
+//   updatePlayTime(amount) {
+//     this.playTime = amount + this.playTime;
+//   },
+// };
+// console.log(profile.getInfo()); // "Jacob has 300 active hours!"
+
+// profile.changeUsername('Marco');
+// console.log(profile.getInfo()); // "Marco has 300 active hours!"
+
+// profile.updatePlayTime(20);
+// console.log(profile.getInfo()); // "Marco has 320 active hours!"
+
+/*Задача 3. Сортування за кількістю друзів
+Напиши стрілочну функцію sortByDescendingFriendCount(users) , яка прийматиме один параметр users — 
+масив об’єктів користувачів.
+Функція має повертати масив усіх користувачів, відсортованих за спаданням кількостій їх друзів 
+(властивість friends).
+Оголошена змінна sortByDescendingFriendCount
+Змінній sortByDescendingFriendCount присвоєна стрілочна функція з параметром (users)
+Для перебирання параметра users використаний метод toSorted()
+Виклик функції із зазначеним масивом users повертає новий масив користувачів, відсортований за 
+спаданням кількості їхніх друзів
+Виклик функції з випадковими, але валідними аргументами повертає правильне значення */
+const sortByDescendingFriendCount = users => {
+  return users.toSorted((a, b) => a.friends.length - b.friends.length);
 };
-console.log(profile.getInfo()); // "Jacob has 300 active hours!"
-
-profile.changeUsername('Marco');
-console.log(profile.getInfo()); // "Marco has 300 active hours!"
-
-profile.updatePlayTime(20);
-console.log(profile.getInfo()); // "Marco has 320 active hours!"
+console.log(
+  sortByDescendingFriendCount([
+    {
+      name: 'Moore Hensley',
+      friends: ['Sharron Pace'],
+      gender: 'male',
+    },
+    {
+      name: 'Sharlene Bush',
+      friends: ['Briana Decker', 'Sharron Pace'],
+      gender: 'female',
+    },
+    {
+      name: 'Ross Vazquez',
+      friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+      gender: 'male',
+    },
+    {
+      name: 'Elma Head',
+      friends: ['Goldie Gentry', 'Aisha Tran'],
+      gender: 'female',
+    },
+    {
+      name: 'Carey Barr',
+      friends: ['Jordan Sampson', 'Eddie Strong'],
+      gender: 'male',
+    },
+    {
+      name: 'Blackburn Dotson',
+      friends: ['Jacklyn Lucas', 'Linda Chapman'],
+      gender: 'male',
+    },
+    {
+      name: 'Sheree Anthony',
+      friends: ['Goldie Gentry', 'Briana Decker'],
+      gender: 'female',
+    },
+  ])
+);
+// [
+//   {
+//     name: "Ross Vazquez",
+//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+//     gender: "male"
+//   },
+//   {
+//     name: "Sharlene Bush",
+//     friends: ["Briana Decker", "Sharron Pace"],
+//     gender: "female"
+//   },
+//   {
+//     name: "Elma Head",
+//     friends: ["Goldie Gentry", "Aisha Tran"],
+//     gender: "female"
+//   },
+//   {
+//     name: "Carey Barr",
+//     friends: ["Jordan Sampson", "Eddie Strong"],
+//     gender: "male"
+//   },
+//   {
+//     name: "Blackburn Dotson",
+//     friends: ["Jacklyn Lucas", "Linda Chapman"],
+//     gender: "male"
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     friends: ["Goldie Gentry", "Briana Decker"],
+//     gender: "female"
+//   },
+//   {
+//     name: "Moore Hensley",
+//     friends: ["Sharron Pace"],
+//     gender: "male"
+//   }
+// ]
