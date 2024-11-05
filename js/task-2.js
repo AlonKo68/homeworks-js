@@ -33,36 +33,22 @@
 // трикрапку "..." в кінці та повертає обрізану версію.
 
 // function formatMessage(message, maxLength) {
-//     const newMessage = message.slice(0, maxLength);
-//     console.log(newMessages);
-//     if (message.length > maxLength) {
-//         return `"${newMessage}..."`;
-//     } else {
-//         return `"${newMessage}"`;
-//     }
-// }
-// console.log(formatMessage("Curabitur ligula sapien", 16)); // "Curabitur ligula..."
-// console.log(formatMessage("Curabitur ligula sapien", 23)); // "Curabitur ligula sapien"
-// console.log(formatMessage("Vestibulum facilisis purus nec", 20)); // "Vestibulum facilisis..."
-// console.log(formatMessage("Vestibulum facilisis purus nec", 30)); // "Vestibulum facilisis purus nec"
-// console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 15)); // "Nunc sed turpis..."
-// console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 41)); // "Nunc sed turpis a felis in nunc fringilla"
+//   const newMessage = message.slice(0, maxLength);
 
-// function formatMessage(message, maxLength) {
-//     const newMessage = message.slice(0, maxLength);
-//     console.log(newMessages);
-//     if (message.length > maxLength) {
-//         return `"${newMessage}..."`;
-//     } else {
-//         return `"${newMessage}"`;
-//     }
+//   return message.length > maxLength ? `"${newMessage}..."` : `"${newMessage}"`;
+
+//   // if (message.length > maxLength) {
+//   //     return `"${newMessage}..."`;
+//   // } else {
+//   //     return `"${newMessage}"`;
+//   // }
 // }
-// console.log(formatMessage("Curabitur ligula sapien", 16)); // "Curabitur ligula..."
-// console.log(formatMessage("Curabitur ligula sapien", 23)); // "Curabitur ligula sapien"
-// console.log(formatMessage("Vestibulum facilisis purus nec", 20)); // "Vestibulum facilisis..."
-// console.log(formatMessage("Vestibulum facilisis purus nec", 30)); // "Vestibulum facilisis purus nec"
-// console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 15)); // "Nunc sed turpis..."
-// console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 41)); // "Nunc sed turpis a felis in nunc fringilla"
+// console.log(formatMessage('Curabitur ligula sapien', 16)); // "Curabitur ligula..."
+// console.log(formatMessage('Curabitur ligula sapien', 23)); // "Curabitur ligula sapien"
+// console.log(formatMessage('Vestibulum facilisis purus nec', 20)); // "Vestibulum facilisis..."
+// console.log(formatMessage('Vestibulum facilisis purus nec', 30)); // "Vestibulum facilisis purus nec"
+// console.log(formatMessage('Nunc sed turpis a felis in nunc fringilla', 15)); // "Nunc sed turpis..."
+// console.log(formatMessage('Nunc sed turpis a felis in nunc fringilla', 41)); // "Nunc sed turpis a felis in nunc fringilla"
 
 // Задача M3 - 2: Композиція масивів
 
@@ -75,25 +61,26 @@
 // В іншому випадку функція повинна повернути весь новий масив.
 
 // function makeArray(firstArray, secondArray, maxLength) {
-//     const array = firstArray.concat(secondArray);
-//     if (array.length > maxLength) {
-//          return array.slice(0, maxLength);
-//     }
-//     return  array;
+//   const array = firstArray.concat(secondArray);  //соединили два массива в один
+//   if (array.length > maxLength) {
+//     return array.slice(0, maxLength);
+//   }
+//   return array;
 // }
-// console.log(makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3)); // ["Mango", "Poly", "Ajax"]
-// console.log(makeArray(["Mango", "Poly", "Houston"], ["Ajax", "Chelsea"], 4)); // ["Mango", "Poly", "Houston", "Ajax"]
-// console.log(makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3)); // ["Mango", "Ajax", "Chelsea"]
-// console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 2)); // ["Earth", "Jupiter"]
-// console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 4)); // ["Earth", "Jupiter", "Neptune", "Uranus"]
-// console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus", "Venus"], 0)); // []
+// console.log(makeArray(['Mango', 'Poly'], ['Ajax', 'Chelsea'], 3)); // ["Mango", "Poly", "Ajax"]
+// console.log(makeArray(['Mango', 'Poly', 'Houston'], ['Ajax', 'Chelsea'], 4)); // ["Mango", "Poly", "Houston", "Ajax"]
+// console.log(makeArray(['Mango'], ['Ajax', 'Chelsea', 'Poly', 'Houston'], 3)); // ["Mango", "Ajax", "Chelsea"]
+// console.log(makeArray(['Earth', 'Jupiter'], ['Neptune', 'Uranus'], 2)); // ["Earth", "Jupiter"]
+// console.log(makeArray(['Earth', 'Jupiter'], ['Neptune', 'Uranus'], 4)); // ["Earth", "Jupiter", "Neptune", "Uranus"]
+// console.log(makeArray(['Earth', 'Jupiter'], ['Neptune', 'Uranus', 'Venus'], 0)); // []
 
 /* Задача M4 - 2. Розрахунок калорій
-Напиши функцію calcAverageCalories(days), яка повертає середньодобове значення кількості калорій, які 
-спортсмен споживав протягом тижня. Функція очікує один параметр: days — масив об’єктів. Кожен об’єкт описує 
-день тижня та кількість калорій calories, спожитих спортсменом, у цей день. Візьми код нижче і встав після 
-оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її 
+Напиши функцію calcAverageCalories(days), яка повертає середньодобове значення кількості калорій, які
+спортсмен споживав протягом тижня. Функція очікує один параметр: days — масив об’єктів. Кожен об’єкт описує
+день тижня та кількість калорій calories, спожитих спортсменом, у цей день. Візьми код нижче і встав після
+оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її
 викликів.  */
+
 // function calcAverageCalories(days) {
 //   let totalCalories = 0;
 //   for (const day of days) {
@@ -105,6 +92,24 @@
 //   return totalCalories / days.length;
 // }
 
+// function calcAverageCalories(days) {
+//   let totalCalories = 0;
+//   for (const { calories } of days) {
+//     totalCalories += calories;
+//   }
+//   if (totalCalories === 0) {
+//     return 0;
+//   }
+//   return totalCalories / days.length;
+// }
+
+// const calcAverageCalories = days => {
+//   const totalCalories = days.reduce((total, user) => total + user.calories, 0);
+//   if (totalCalories === 0) {
+//     return 0;
+//   }
+//   return totalCalories / days.length;
+// };
 // console.log(
 //   calcAverageCalories([
 //     { day: 'monday', calories: 3010 },
@@ -134,70 +139,80 @@
 
 перший параметр users — масив об’єктів користувачів
 другий параметр friendName — ім’я друга для пошуку.
-Функція має повертати масив усіх користувачів із масиву users, у яких є друг з іменем friendName. Друзі 
-кожного користувача зберігаються у властивості friends. Якщо користувачів, у яких є такий друг немає, то 
+Функція має повертати масив усіх користувачів із масиву users, у яких є друг з іменем friendName. Друзі
+кожного користувача зберігаються у властивості friends. Якщо користувачів, у яких є такий друг немає, то
 функція має повернути порожній масив.
 
 Поради:
 
-Метод filter() можна використовувати для створення нового масиву з елементами, які задовольняють певну 
+Метод filter() можна використовувати для створення нового масиву з елементами, які задовольняють певну
 умову.
 Використовуй метод includes() для перевірки, чи масив friends містить friendName.
-Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль 
+Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль
 будуть виведені результати її роботи.  */
-const allUsers = [
-  {
-    name: 'Moore Hensley',
-    friends: ['Sharron Pace'],
-  },
-  {
-    name: 'Sharlene Bush',
-    friends: ['Briana Decker', 'Sharron Pace'],
-  },
-  {
-    name: 'Ross Vazquez',
-    friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
-  },
-  {
-    name: 'Elma Head',
-    friends: ['Goldie Gentry', 'Aisha Tran'],
-  },
-  {
-    name: 'Carey Barr',
-    friends: ['Jordan Sampson', 'Eddie Strong'],
-  },
-  {
-    name: 'Blackburn Dotson',
-    friends: ['Jacklyn Lucas', 'Linda Chapman'],
-  },
-  {
-    name: 'Sheree Anthony',
-    friends: ['Goldie Gentry', 'Briana Decker'],
-  },
-];
-const getUsersWithFriend = (users, friendName) =>
-  users.filter(user => user.friends.includes(friendName));
+// const allUsers = [
+//     { name: 'Moore Hensley', friends: ['Sharron Pace'], },
+//     { name: 'Sharlene Bush', friends: ['Briana Decker', 'Sharron Pace'], },
+//     { name: 'Ross Vazquez', friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'], },
+//     { name: 'Elma Head', friends: ['Goldie Gentry', 'Aisha Tran'], },
+//     { name: 'Carey Barr', friends: ['Jordan Sampson', 'Eddie Strong'], },
+//     { name: 'Blackburn Dotson', friends: ['Jacklyn Lucas', 'Linda Chapman'], },
+//     { name: 'Sheree Anthony', friends: ['Goldie Gentry', 'Briana Decker'], },
+// ];
 
-console.log(getUsersWithFriend(allUsers, 'Briana Decker'));
-[
-  {
-    name: 'Sharlene Bush',
-    friends: ['Briana Decker', 'Sharron Pace'],
-  },
-  {
-    name: 'Sheree Anthony',
-    friends: ['Goldie Gentry', 'Briana Decker'],
-  },
-];
-console.log(getUsersWithFriend(allUsers, 'Goldie Gentry'));
-[
-  {
-    name: 'Elma Head',
-    friends: ['Goldie Gentry', 'Aisha Tran'],
-  },
-  {
-    name: 'Sheree Anthony',
-    friends: ['Goldie Gentry', 'Briana Decker'],
-  },
-];
-console.log(getUsersWithFriend(allUsers, 'Adrian Cross')); // []
+// const getUsersWithFriend = (users, friendName) =>
+//     users.filter(user => user.friends.includes(friendName));
+
+// console.log(getUsersWithFriend(allUsers, 'Briana Decker'));
+// [
+//     { name: 'Sharlene Bush', friends: ['Briana Decker', 'Sharron Pace'], },
+//     { name: 'Sheree Anthony', friends: ['Goldie Gentry', 'Briana Decker'], },
+// ];
+// console.log(getUsersWithFriend(allUsers, 'Goldie Gentry'));
+// [
+//     { name: 'Elma Head', friends: ['Goldie Gentry', 'Aisha Tran'], },
+//     { name: 'Sheree Anthony', friends: ['Goldie Gentry', 'Briana Decker'], },
+// ];
+// console.log(getUsersWithFriend(allUsers, 'Adrian Cross')); // []
+
+//Задача m6 - 2. Склад
+// Створи клас Storage, який створюватиме об'єкти для управління складом товарів. Клас очікує лише один 
+// аргумент — початковий масив товарів, який записується до створеного об'єкта в приватну властивість items.
+
+// Оголоси наступні методи класу:
+// getItems() — повертає масив поточних товарів у приватній властивості items.
+// addItem(newItem) — приймає новий товар newItem і додає його до масиву товарів у приватну властивість 
+// items об'єкта.
+// removeItem(itemToRemove) — приймає рядок з назвою товару itemToRemove і видаляє його з масиву товарів 
+// у приватній властивості items об'єкта.
+// Візьми код нижче з ініціалізацією екземпляра й викликами методів і встав його після оголошення класу для 
+//перевірки коректності роботи.У консоль будуть виведені результати їх роботи.Будь ласка, нічого там не змінюй.
+
+// class Storage {
+//     #items;
+//     constructor(items) {
+//         this.#items = items;
+//     }
+//     getItems() {
+//         return this.#items;
+//     }
+//     addItem(newItem) {
+//         return this.#items.push(newItem);
+//     }
+//     removeItem(removeItem) {
+//         const idx = this.#items.indexOf(removeItem);
+//         console.log(idx);
+//         this.#items.splice(1, idx);
+//     }
+// }
+// const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+
+// storage.addItem("Droid");
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+
+// storage.removeItem("Prolonger");
+// console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+
+// storage.removeItem("Scaner");
+// console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]

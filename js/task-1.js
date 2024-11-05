@@ -38,17 +38,22 @@
 // замовлених дроїдів, а < totalPrice > це їх загальна вартість.
 
 // function makeTransaction(quantity, pricePerDroid, customerCredits) {
-//     const totalPrice = quantity * pricePerDroid;
-//     if (customerCredits < totalPrice) {
-//         return "Insufficient funds!";
-//     } else {
-//         return `"You ordered ${quantity} droids worth ${totalPrice} credits!"`;
-//     }
-// //   if (totalPrice > customerCredits) {
-// //     return "Insufficient funds!";
-// //   } else {
-// //     return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
-// //   }
+//   const totalPrice = quantity * pricePerDroid;
+
+//   return customerCredits < totalPrice
+//     ? 'Insufficient funds!'
+//     : `"You ordered ${quantity} droids worth ${totalPrice} credits!"`;
+
+//   // if (customerCredits < totalPrice) {
+//   //     return "Insufficient funds!";
+//   // } else {
+//   //     return `"You ordered ${quantity} droids worth ${totalPrice} credits!"`;
+//   // }
+//   //   if (totalPrice > customerCredits) {
+//   //     return "Insufficient funds!";
+//   //   } else {
+//   //     return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
+//   //   }
 // }
 // console.log(makeTransaction(5, 3000, 23000)); // "You ordered 5 droids worth 15000 credits!"
 // console.log(makeTransaction(3, 1000, 15000)); // "You ordered 3 droids worth 3000 credits!"
@@ -82,37 +87,34 @@
 // console.log(slugify('How to become a JUNIOR developer in TWO WEEKS')); // "how-to-become-a-junior-developer-in-two-weeks"
 
 // Задача M4 - 1. Пакування товарів
-/*Напиши функцію isEnoughCapacity(products, containerSize), яка обчислює, чи помістяться всі товари в 
+/*Напиши функцію isEnoughCapacity(products, containerSize), яка обчислює, чи помістяться всі товари в
 контейнер при пакуванні.
 
 Функція оголошує два параметри:
 
-products — об'єкт, у якому ключі містять назви товарів, а їхні значення — кількість цих товарів. 
+products — об'єкт, у якому ключі містять назви товарів, а їхні значення — кількість цих товарів.
 Наприклад, { apples: 2, grapes: 4 }.
 containerSize — число, максимальна кількість одиниць товарів, яку в себе може вмістити контейнер.
 
-Функція має повернути результат перевірки, чи помістяться всі товари в контейнер. Тобто порахувати 
-загальну кількість товарів в об’єкті products і повернути true, якщо вона менше або дорівнює 
+Функція має повернути результат перевірки, чи помістяться всі товари в контейнер. Тобто порахувати
+загальну кількість товарів в об’єкті products і повернути true, якщо вона менше або дорівнює
 containerSize, і false, якщо ні.
 
-Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. 
+Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи.
 У консоль будуть виведені результати її викликів.  */
 
 // function isEnoughCapacity(products, containerSize) {
-//   // let totalQuantities = 0;
-//   // for (const product in products) {
-//   //   totalQuantities += products[product];
-//   // }
-//   // if (totalQuantities <= containerSize) {
-//   //   return true;
-//   // }
-//   // return false;
+//   let totalQuantities = 0;
+//   for (const product in products) {
+//     totalQuantities += products[product];
+//   }
+//   if (totalQuantities <= containerSize) {
+//     return true;
+//   }
+//   return false;
 // }
-// console.log(isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)); // true
-// console.log(isEnoughCapacity({ apples: 4, grapes: 6, lime: 16 }, 12)); // false
-// console.log(isEnoughCapacity({ apples: 1, lime: 5, tomatoes: 3 }, 14)); // true
-// console.log(isEnoughCapacity({ apples: 18, potatoes: 5, oranges: 2 }, 7)); // false
 
+//2
 // function isEnoughCapacity(products, containerSize) {
 //   const totalProducts = Object.values(products).reduce(
 //     (total, quantity) => total + quantity,
@@ -120,60 +122,67 @@ containerSize, і false, якщо ні.
 //   );
 //   return totalProducts <= containerSize;
 // }
+
 // console.log(isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)); // true
-
 // console.log(isEnoughCapacity({ apples: 4, grapes: 6, lime: 16 }, 12)); // false
-
 // console.log(isEnoughCapacity({ apples: 1, lime: 5, tomatoes: 3 }, 14)); // true
-
 // console.log(isEnoughCapacity({ apples: 18, potatoes: 5, oranges: 2 }, 7)); // false
 
-/*Задача 1. Імена користувачів
+/*Задача m5 - 1. Імена користувачів
 Оголошена змінна getUserNames
 Змінній getUserNames присвоєна стрілочна функція з параметром (users).
 Для перебирання параметра users використовується метод map() */
 
-// const getUserNames = users => {
-//   return users.map(user => user.name);
+// // const getUserNames =  users => {
+// //   return users.map(user => user.name);
+// // };
+
+// const getUserNames = users => users.map(user => user.name);
+// console.log(
+//   getUserNames([
+//     { name: 'Moore Hensley', email: 'moorehensley@indexia.com', balance: 2811,},
+//     { name: 'Sharlene Bush',  email: 'sharlenebush@tubesys.com', balance: 3821, },
+//     { name: 'Ross Vazquez',email: 'rossvazquez@xinware.com', balance: 3793,},
+//     { name: 'Elma Head', email: 'elmahead@omatom.com', balance: 2278,},
+//     { name: 'Carey Barr', email: 'careybarr@nurali.com', balance: 3951,},
+//     { name: 'Blackburn Dotson', email: 'blackburndotson@furnigeer.com', balance: 1498, },
+//     { name: 'Sheree Anthony', email: 'shereeanthony@kog.com', balance: 2764, },
+//   ])
+// ); // ["Moore Hensley", "Sharlene Bush", "Ross Vazquez", "Elma Head", "Carey Barr", "Blackburn Dotson", "Sheree Anthony"]
+// console.log(getUserNames()); //[]
+
+//Задача m6 - 1. Акаунт користувача
+// Перед звільненням розробник зламав вихідний код управління акаунтами користувачів нашого сервісу доставки 
+// їжі.Виконай рефакторинг методів об'єкта customer, розставивши відсутні this під час звернення до 
+// властивостей об'єкта.
+// Використай цей стартовий код і виконай рефакторинг. Після оголошення об'єкта ми додали виклики методів. 
+// У консоль будуть виведені результати їх роботи.Будь ласка, нічого там не змінюй.
+// const customer = {
+//     username: 'Mango',
+//     balance: 24000,
+//     discount: 0.1,
+//     orders: ['Burger', 'Pizza', 'Salad'],
+//     // Change code below this line
+//     getBalance() {
+//         return this.balance;
+//     },
+//     getDiscount() {
+//         return this.discount;
+//     },
+//     setDiscount(value) {
+//         this.discount = value;
+//     },
+//     getOrders() {
+//         return this.orders;
+//     },
+//     addOrder(cost, order) {
+//         this.balance -= cost - cost * this.discount;
+//         this.orders.push(order);
+//     },
 // };
-const getUserNames = users => users.map(user => user.name);
-console.log(
-  getUserNames([
-    {
-      name: 'Moore Hensley',
-      email: 'moorehensley@indexia.com',
-      balance: 2811,
-    },
-    {
-      name: 'Sharlene Bush',
-      email: 'sharlenebush@tubesys.com',
-      balance: 3821,
-    },
-    {
-      name: 'Ross Vazquez',
-      email: 'rossvazquez@xinware.com',
-      balance: 3793,
-    },
-    {
-      name: 'Elma Head',
-      email: 'elmahead@omatom.com',
-      balance: 2278,
-    },
-    {
-      name: 'Carey Barr',
-      email: 'careybarr@nurali.com',
-      balance: 3951,
-    },
-    {
-      name: 'Blackburn Dotson',
-      email: 'blackburndotson@furnigeer.com',
-      balance: 1498,
-    },
-    {
-      name: 'Sheree Anthony',
-      email: 'shereeanthony@kog.com',
-      balance: 2764,
-    },
-  ])
-); // ["Moore Hensley", "Sharlene Bush", "Ross Vazquez", "Elma Head", "Carey Barr", "Blackburn Dotson", "Sheree Anthony"]
-console.log(getUserNames()); //[]
+
+// customer.setDiscount(0.15);
+// console.log(customer.getDiscount()); // 0.15
+// customer.addOrder(5000, 'Steak');
+// console.log(customer.getBalance()); // 19750
+// console.log(customer.getOrders()); // ["Burger", "Pizza", "Salad", "Steak"]
