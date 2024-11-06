@@ -201,8 +201,9 @@
 //     }
 //     removeItem(removeItem) {
 //         const idx = this.#items.indexOf(removeItem);
-//         console.log(idx);
-//         this.#items.splice(1, idx);
+//         if (idx !== -1) {
+//             this.#items.splice(idx, 1);
+//         }
 //     }
 // }
 // const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
